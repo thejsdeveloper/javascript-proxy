@@ -10,12 +10,10 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-const enhancedObject = enhanceObject({ name: "rick" }, ["name"]);
+let obj = { name: "rick", planet: "earth" };
+
+obj = enhanceObject(obj);
 
 console.clear();
-
-console.log(enhancedObject.name);
-
-enhancedObject.city = "Earth";
-
-enhancedObject.name = "Morty";
+console.log(obj.name);
+obj.planet = "Mars";

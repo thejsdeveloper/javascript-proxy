@@ -1,20 +1,21 @@
-export function enhanceObject(obj, propsKeys) {
-  const storedObj = Object.create(null);
+export function enhanceObject(plainObject) {
+  const keys = Object.keys(plainObject);
 
-  propsKeys.forEach((key) => {
-    storedObj[key] = obj[key];
+  const storedObject = {};
 
-    Object.defineProperty(obj, key, {
+  keys.forEach((key) => {
+    storedObject[key] = plainObject[key];
+    Object.defineProperty(plainObject, key, {
       get: function () {
-        console.log(`GETTING PROPERTY [${key}]`);
-        return storedObj[key];
+        console.log(`GETTING value for  [${key}]`);
+        return storedObject[key];
       },
       set: function (value) {
-        console.log(`SETTING PROPERTY [${key}]`);
-        storedObj[key] = value;
+        console.log(`SETTING ${key} = ${value}`);
+        storedObject[key] = value;
       }
     });
   });
 
-  return obj;
+  return plainObject;
 }
