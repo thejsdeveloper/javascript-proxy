@@ -1,4 +1,5 @@
 import { enhanceObject } from "./proxy/enhancedObject.es5";
+import { proxyObject } from "./proxy/enhancedObject.es6";
 import "./styles.css";
 
 document.getElementById("app").innerHTML = `
@@ -15,5 +16,17 @@ let obj = { name: "rick", planet: "earth" };
 obj = enhanceObject(obj);
 
 console.clear();
+console.log("************ ES5 Solution ************");
 console.log(obj.name);
 obj.planet = "Mars";
+
+let character = { name: "morty", planet: "earth" };
+
+character = proxyObject(character);
+
+console.log("************ ES6 Solution ************");
+
+console.log(character.name);
+character.planet = "Mars";
+
+character.grandParent = "Rick";
