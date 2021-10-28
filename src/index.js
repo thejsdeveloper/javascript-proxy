@@ -3,11 +3,24 @@ import { proxyObject } from "./proxy/enhancedObject.es6";
 import "./styles.css";
 
 document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+<header class="container" id="header">
+<img src=${require("./assets/js_j_logo.png")} class="logo"/>
+<p class="title">Proxy</p>
+</header>
+
+<div class="container column">
+<section class="description mt-2">
+<h3 >Implementations</h3>
+    <hr/>
+<ul class="list">
+ <li>ES6 Solution:  <strong>proxy/enhancedObject.es6.js</strong></li>
+ <li>ES5 Solution:  <strong>proxy/enhancedObject.es5.js</strong></li>
+</ul>
+
+</section>
+<section class="note">
+ <h2>To view the logs, please Open Console in the browser.</h2>
+</section>
 </div>
 `;
 
